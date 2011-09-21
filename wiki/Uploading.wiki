@@ -53,7 +53,7 @@ _none_
 *HTTP POST parameters*
 || *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
 || Filedata || no || string ||  ||  || The file to upload ||
-|| akey || yes || string ||  ||  || ApiKey of the account to which this file is to be added to (see [FetchingApikey]) ||
+|| akey || yes || string ||  ||  || apikey of the account to which this file is to be added to (see [FetchingApikey]) ||
 <br>
 
 * API response parameters *
