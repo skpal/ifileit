@@ -7,6 +7,7 @@ Uploading to ifile.it via API is very simple process consisting of two steps:
   # Determine upload url, we discover which upload server (if any) is accepting uploads
   # We upload the file via HTTP POST request to the upload url fetched in step 1 above
 
+<br><br>
 ----
 
 ===Step1 - Determine upload url===
@@ -32,14 +33,15 @@ _none_
 || server_id || int||  || The unique id of the server,<br>example: i<b>71</b>.ifile.it ||
 || upload_url || string ||  || The url to which you can upload your file (see step 2 below)<br>example: http://i<b>71</b>.ifile.it/upload ||
 
+<br><br>
 ----
 
 ===Step2 - Upload file===
 *Request URL*
 {{{
-http://i<b>123</b>ifile.it/upload
+http://i123.ifile.it/upload
 }}}
-Where <b>123</b> is the server_id of the upload server (see step 1 above)
+Where <b>123</b> in the URL is the server_id of the upload server (see step 1 above)
 
 *HTTP GET parameters*
 
