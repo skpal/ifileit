@@ -15,17 +15,17 @@ Uploading to ifile.it via API is very simple process consisting of two steps:
 {{{
 http://ifile.it/api-fetch_upload_url.api
 }}}
+<br>
 
 *HTTP GET parameters*
 || *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
 || request || yes || string || json<br/>text || json || In what format the API response should be ||
+<br>
 
 *HTTP POST parameters*
 
 _none_
-
-
-
+<br>
 
 * API response parameters *
 || *parameter name* || *type* || *possible values* || *description* || 
@@ -42,17 +42,18 @@ _none_
 http://i123.ifile.it/upload
 }}}
 Where <b>123</b> in the URL is the server_id of the upload server (see step 1 above)
+<br>
 
 *HTTP GET parameters*
 
 _none_
+<br>
 
 *HTTP POST parameters*
 || *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
 || Filedata || no || string ||  ||  || The file to upload ||
 || akey || yes || string ||  ||  || ApiKey of the account to which this file is to be added to (see [FetchingApikey]) ||
-
-
+<br>
 
 * API response parameters *
 || *parameter name* || *type* || *possible values* || *description* || 
@@ -62,3 +63,5 @@ _none_
 || size || int ||  || File size in bytes ||
 || mime || string ||  || File [http://en.wikipedia.org/wiki/MIME mimetype] ||
 || md5 || string ||  || File [http://en.wikipedia.org/wiki/Md5sum md5] checksum ||
+
+<br><br>
