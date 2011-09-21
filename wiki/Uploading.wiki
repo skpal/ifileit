@@ -23,5 +23,10 @@ http://ifile.it/api-fetch_upload_url.api
 
 _none_
 
+* API response parameters *
+|| *parameter name* || *type* || *possible values* || *description* || 
+|| status || string || ok<br>error || Whether the request was successful, error message parameter shown on error ||
+|| server_id || int||  || The unique id of the server,<br>example: m<b>71</b>.ifile.it ||
+|| upload_url || string ||  || The url to which you can upload your file (see step 2 below)<br>example: http://m<b>71</b>.ifile.it/upload ||
 
 ----
