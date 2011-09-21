@@ -1,11 +1,27 @@
 #summary Document describes how to upload to ifile.it using the api
+#labels Phase-Implementation
 
-= Introduction =
+==Introduction==
 
 Uploading to ifile.it via API is very simple process consisting of two steps:
   # Determine upload url, we discover which upload server (if any) is accepting uploads
   # We upload the file via HTTP POST request to the upload url fetched in step 1 above
 
+----
 
-= Details =
+===Step1 - Determine upload url===
+*Request URL*
+{{{
+http://ifile.it/api-fetch_upload_url.api
+}}}
 
+*HTTP GET parameters*
+|| *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
+|| request || yes || string || json<br/>text || json || In what format the API response should be ||
+
+*HTTP POST parameters*
+
+_none_
+
+
+----
