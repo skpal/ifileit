@@ -29,7 +29,34 @@ _none_
 * API response parameters *
 || *parameter name* || *type* || *possible values* || *description* || 
 || status || string || ok<br>error || Whether the request was successful, error message parameter shown on error ||
-|| server_id || int||  || The unique id of the server,<br>example: m<b>71</b>.ifile.it ||
-|| upload_url || string ||  || The url to which you can upload your file (see step 2 below)<br>example: http://m<b>71</b>.ifile.it/upload ||
+|| server_id || int||  || The unique id of the server,<br>example: i<b>71</b>.ifile.it ||
+|| upload_url || string ||  || The url to which you can upload your file (see step 2 below)<br>example: http://i<b>71</b>.ifile.it/upload ||
 
 ----
+
+===Step2 - Upload file===
+*Request URL*
+{{{
+http://i<b>123</b>ifile.it/upload
+}}}
+Where <b>123</b> is the server_id of the upload server (see step 1 above)
+
+*HTTP GET parameters*
+
+_none_
+
+*HTTP POST parameters*
+|| *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
+|| Filedata || no || string ||  ||  || The file to upload ||
+|| akey || yes || string ||  ||  || ApiKey of the account to which this file is to be added to (see [FetchingApikey]) ||
+
+
+
+* API response parameters *
+|| *parameter name* || *type* || *possible values* || *description* || 
+|| status || string || ok<br>error || Whether the request was successful, error message parameter shown on error ||
+|| ukey || string ||  || The unique identifier for a file (see [WhatIsUkey]) ||
+|| name || string ||  || Name for the file uploaded ||
+|| size || int ||  || File size in bytes ||
+|| mime || string ||  || File [http://en.wikipedia.org/wiki/MIME mimetype] ||
+|| md5 || string ||  || File [http://en.wikipedia.org/wiki/Md5sum md5] checksum ||
