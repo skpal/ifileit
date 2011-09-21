@@ -41,8 +41,9 @@ _none_
 {{{
 http://i123.ifile.it/upload
 }}}
-Where <b>123</b> in the URL is the server_id of the upload server (see step 1 above)
+Where the request URL is determined in step 1 above
 <br>
+
 
 *HTTP GET parameters*
 
