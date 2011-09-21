@@ -66,3 +66,48 @@ _none_
 || md5 || string ||  || File [http://en.wikipedia.org/wiki/Md5sum md5] checksum ||
 
 <br><br>
+----
+===Sample Code in PHP===
+Using the official PHP api wrapper, see [http://code.google.com/p/ifileit/downloads/list Downloads]
+{{{
+<?php
+
+/**
+ * this example code snipppet tries to upload a file
+ */
+
+//set error reporting and include our api class
+error_reporting(E_ALL); ini_set( 'display_errors', 'On' );
+require_once( 'IfileApi.php' ); //in same directory as this example script
+
+
+//create api model
+$IfileApi = new IfileApi();
+
+//test filepath to the file to upload
+$filepath	=	'/PATH/TO/test.file';
+
+
+
+
+
+
+try {
+	
+	$upload = $IfileApi->upload(
+		$filepath
+	);
+	
+	print 'uploaded: http://ifile.it/'.$upload['ukey'].'/'.rawurlencode( $upload['name'] )."\n\n";
+	
+	//output our response response array to see its structure
+	print print_r( $upload,true );
+	
+}
+catch ( IfileApiException $e){
+	
+	print 'IfileApiException > '.$e->getMessage();
+}
+
+?>
+}}}
