@@ -1,0 +1,11 @@
+#summary Document describes how to upload to ifile.it using the api
+
+= Introduction =
+
+Uploading to ifile.it via API is very simple process consisting of two steps:
+  # Determine upload url, we discover which upload server (if any) is accepting uploads
+  # We upload the file via HTTP POST request to the upload url fetched in step 1 above
+
+
+= Details =
+
