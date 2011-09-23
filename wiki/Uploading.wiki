@@ -64,7 +64,7 @@ Where the request URL is determined in step 1 above
 * API response parameters *
 || *parameter name* || *type* || *possible values* || *description* || 
 || status || string || ok<br>error || Whether the request was successful, error message parameter shown on error ||
-|| ukey || string ||  || The unique identifier for a file (see [WhatIsUkey]) ||
+|| ukey || string ||  || The unique identifier for a file (what is [Ukey] ?) ||
 || name || string ||  || Name for the file uploaded ||
 || size || int ||  || File size in bytes ||
 || mime || string ||  || File [http://en.wikipedia.org/wiki/MIME mimetype] ||
