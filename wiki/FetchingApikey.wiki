@@ -16,23 +16,27 @@ The apikey only changes when the account holder changes his/her password, and mi
 {{{
 https://secure.ifile.it/api-fetch_apikey.api
 }}}
-<br>
 
+<br>
+<br>
 *HTTP GET parameters*
 || *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
 || response || yes || string || json<br/>text || json || In what format the API response should be ||
+
 <br>
 <br>
 *HTTP POST parameters*
 || *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
 || username || no || string ||  ||  || Account username ||
 || password || no || string ||  ||  || Account password ||
+
 <br>
 <br>
 * API response parameters *
 || *parameter name* || *type* || *possible values* || *description* || 
 || status || string || ok<br>error || Whether the request was successful, error message parameter shown on error ||
 || akey || string ||  || The apikey for this account ||
+
 <br><br><br>
 ----
 ===Sample Code in PHP===
