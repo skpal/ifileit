@@ -22,20 +22,18 @@ https://secure.ifile.it/api-fetch_apikey.api
 || *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
 || response || yes || string || json<br/>text || json || In what format the API response should be ||
 <br>
-
+<br>
 *HTTP POST parameters*
 || *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
 || username || no || string ||  ||  || Account username ||
 || password || no || string ||  ||  || Account password ||
 <br>
-
+<br>
 * API response parameters *
 || *parameter name* || *type* || *possible values* || *description* || 
 || status || string || ok<br>error || Whether the request was successful, error message parameter shown on error ||
 || akey || string ||  || The apikey for this account ||
-
-
-<br><br>
+<br><br><br>
 ----
 ===Sample Code in PHP===
 Using the official PHP api wrapper, see [http://code.google.com/p/ifileit/downloads/list Downloads]
