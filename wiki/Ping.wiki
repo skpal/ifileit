@@ -38,5 +38,47 @@ _none_
 ===Sample Code in PHP===
 Using the official PHP api wrapper, see [http://code.google.com/p/ifileit/downloads/list Downloads]
 {{{
+<?php
 
+/**
+ * this example code snipppet pings the ifile.it api and checks the response for a "pong" reply
+ * usefull for checking if the site/api is up
+ */
+
+//set error reporting and include our api class
+error_reporting(E_ALL); ini_set( 'display_errors', 'On' );
+require_once( 'IfileApi.php' ); //in same directory as this example script
+
+
+//create api model
+$IfileApi = new IfileApi();
+
+
+
+
+//try pinging
+try {
+	
+	$response = $IfileApi->post(
+		'http://ifile.it/api-ping.api',
+		array()
+	);
+}
+catch ( IfileApiException $e){
+	
+	print 'IfileApiException > '.$e->getMessage();
+}
+
+
+if ( $response['message'] == 'pong' ){
+	
+	print 'ifile.it api is up'."\n\n";
+}
+
+
+//output our response response array to see its structure
+print print_r( $response,true );
+
+
+?>
 }}}
