@@ -19,8 +19,8 @@ https://secure.ifile.it/api-fetch_apikey.api
 <br>
 
 *HTTP GET parameters*
-
-_none_
+|| *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
+|| response || yes || string || json<br/>text || json || In what format the API response should be ||
 <br>
 
 *HTTP POST parameters*
