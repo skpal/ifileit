@@ -16,23 +16,23 @@ Uploading to ifile.it via API is very simple process consisting of two steps:
 http://ifile.it/api-fetch_upload_url.api
 }}}
 <br>
-
+<br>
 *HTTP GET parameters*
 || *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
 || response || yes || string || json<br/>text || json || In what format the API response should be ||
 <br>
-
+<br>
 *HTTP POST parameters*
 
 _none_
 <br>
-
+<br>
 * API response parameters *
 || *parameter name* || *type* || *possible values* || *description* || 
 || status || string || ok<br>error || Whether the request was successful, error message parameter shown on error ||
 || server_id || int||  || The unique id of the server,<br>example: i<b>71</b>.ifile.it ||
 || upload_url || string ||  || The url to which you can upload your file (see step 2 below)<br>example: http://i<b>71</b>.ifile.it/upload ||
-
+<br>
 <br><br>
 ----
 
