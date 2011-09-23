@@ -11,7 +11,7 @@ Ping is the the most simple call in the ifile.it API, and it allows you to check
 ===Fetch apikey===
 *Request URL*
 {{{
-https://secure.ifile.it/api-ping.api
+http://ifile.it/api-ping.api
 }}}
 
 <br>
