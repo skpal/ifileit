@@ -1,0 +1,42 @@
+#summary checking api/site is up
+
+==Introduction==
+
+Ping is the the most simple call in the ifile.it API, and it allows you to check whether the service is up.
+
+
+<br><br>
+----
+
+===Fetch apikey===
+*Request URL*
+{{{
+https://secure.ifile.it/api-ping.api
+}}}
+
+<br>
+<br>
+*HTTP GET parameters*
+|| *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
+|| response || yes || string || json<br/>text || json || In what format the API response should be ||
+
+<br>
+<br>
+*HTTP POST parameters*
+
+_none_
+
+<br>
+<br>
+* API response parameters *
+|| *parameter name* || *type* || *possible values* || *description* || 
+|| status || string || ok<br>error || Whether the request was successful, error message parameter shown on error ||
+|| message || string || "pong" || The api replying to your ping ||
+
+<br><br><br>
+----
+===Sample Code in PHP===
+Using the official PHP api wrapper, see [http://code.google.com/p/ifileit/downloads/list Downloads]
+{{{
+
+}}}
