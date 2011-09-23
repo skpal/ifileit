@@ -15,16 +15,19 @@ Uploading to ifile.it via API is very simple process consisting of two steps:
 {{{
 http://ifile.it/api-fetch_upload_url.api
 }}}
+
 <br>
 <br>
 *HTTP GET parameters*
 || *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
 || response || yes || string || json<br/>text || json || In what format the API response should be ||
+
 <br>
 <br>
 *HTTP POST parameters*
 
 _none_
+
 <br>
 <br>
 * API response parameters *
@@ -32,8 +35,8 @@ _none_
 || status || string || ok<br>error || Whether the request was successful, error message parameter shown on error ||
 || server_id || int||  || The unique id of the server,<br>example: i<b>71</b>.ifile.it ||
 || upload_url || string ||  || The url to which you can upload your file (see step 2 below)<br>example: http://i<b>71</b>.ifile.it/upload ||
-<br>
-<br><br>
+
+<br><br><br>
 ----
 
 ===Step2 - Upload file===
@@ -42,20 +45,22 @@ _none_
 http://i123.ifile.it/upload
 }}}
 Where the request URL is determined in step 1 above
+
 <br>
-
-
+<br>
 *HTTP GET parameters*
 
 _none_
-<br>
 
+<br>
+<br>
 *HTTP POST parameters*
 || *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
 || Filedata || no || string ||  ||  || The file to upload ||
 || akey || yes || string ||  ||  || apikey of the account to which this file is to be added to (see [FetchingApikey]) ||
-<br>
 
+<br>
+<br>
 * API response parameters *
 || *parameter name* || *type* || *possible values* || *description* || 
 || status || string || ok<br>error || Whether the request was successful, error message parameter shown on error ||
@@ -65,7 +70,7 @@ _none_
 || mime || string ||  || File [http://en.wikipedia.org/wiki/MIME mimetype] ||
 || md5 || string ||  || File [http://en.wikipedia.org/wiki/Md5sum md5] checksum ||
 
-<br><br>
+<br><br><br>
 ----
 ===Sample Code in PHP===
 Using the official PHP api wrapper, see [http://code.google.com/p/ifileit/downloads/list Downloads]
