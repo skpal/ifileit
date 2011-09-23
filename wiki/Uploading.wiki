@@ -49,8 +49,8 @@ Where the request URL is determined in step 1 above
 <br>
 <br>
 *HTTP GET parameters*
-
-_none_
+|| *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
+|| response || yes || string || json<br/>text || json || In what format the API response should be ||
 
 <br>
 <br>
