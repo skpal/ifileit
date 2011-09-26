@@ -3,7 +3,7 @@
 
 = Introduction =
 
-This API call lets you check whether the file is downloadable from ifile.it
+This API call lets you check whether the file is downloadable from ifile.it. You can use this to check any file whether it belongs to you or not.
 
 <br><br>
 ----
