@@ -1,0 +1,46 @@
+#summary how to fetch download ticket url
+#labels Phase-Design
+
+==Introduction==
+
+Users with beta tester or vip accounts can request download tickets via this API calls, one can the download from the download ticket URL.
+
+This call will be available to users with premium accounts when the premium account system is done, in the meantime it is only available to beta/vip account holders.
+
+<br><br>
+----
+
+===Get download ticket url===
+*Request URL*
+{{{
+http://ifile.it/api-fetch_download_url.api
+}}}
+
+<br>
+<br>
+*HTTP GET parameters*
+|| *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
+|| response || yes || string || json<br/>text || json || In what format the API response should be ||
+
+<br>
+<br>
+*HTTP POST parameters*
+|| *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
+|| ukey || no || string ||  ||  || The unique key for a file (see [Ukey]) ||
+|| akey || no || string ||  ||  || apikey for a users account (see [FetchingApikey]) ||
+
+<br>
+<br>
+* API response parameters *
+|| *parameter name* || *type* || *possible values* || *description* || 
+|| status || string || ok<br>error || Whether the request was successful, error message parameter shown on error ||
+|| download_url || string ||  || Download ticket URL ||
+
+
+One can then download from the download ticket URL.
+
+You could use wget or curl or whatever method you wish to download files available on your platform and/or programming language of choice
+
+Please note:
+  * Download ticket URLs are only valid for 24 hours from time of issue
+  * Download ticket URLs are restricted to the network from which the ticket was requested.
