@@ -1,0 +1,111 @@
+#summary get information about the ifile.it account
+#labels Phase-Design
+
+==Introduction==
+
+Once you have an apikey for an ifile.it account you can use it to fetch certain account information and statistics which you may incorporate in your application/code.
+
+
+<br><br>
+----
+
+===Fetch apikey===
+*Request URL*
+{{{
+http://ifile.it/api-fetch_account_info.api
+}}}
+
+<br>
+<br>
+*HTTP GET parameters*
+|| *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
+|| response || yes || string || json<br/>text || json || In what format the API response should be ||
+
+<br>
+<br>
+*HTTP POST parameters*
+|| *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
+|| akey || no || string ||  ||  || apikey of the account to fetch information/stats for (see [FetchingApikey]) ||
+
+<br>
+<br>
+* API response parameters *
+|| *parameter name* || *type* || *possible values* || *description* || 
+|| status || string || ok<br>error || Whether the request was successful, error message parameter shown on error ||
+|| num_files || int ||  || Number of working files attached to account ||
+|| num_folders || int ||  || Number of folders belonging to this account ||
+|| storage_used || int ||  || Sum total of bytes (storage) taken by all your files ||
+|| bw_used_24hrs || int ||  || Sum total of bytes downloaded (in all downloads partial or full) by your account in the last 24 hours ||
+|| user_id || int ||  || Unique account number ||
+|| user_name || string ||  || Account username ||
+|| user_group || string || normal<br>premium<br>vip || User group this account belongs to ||
+
+<br><br><br>
+----
+===Sample Code in PHP===
+Using the official PHP api wrapper, see [http://code.google.com/p/ifileit/downloads/list Downloads]
+{{{
+<?php
+
+/**
+ * this example code snippet retrieves various user account information such as number of files and so on
+ */
+
+//set error reporting and include our api class
+error_reporting(E_ALL); ini_set( 'display_errors', 'On' );
+require_once( 'IfileApi.php' ); //in same directory as this example script
+
+
+//create api model
+$IfileApi = new IfileApi();
+
+
+
+
+//username and pass for an account for which you wish to get the apikey
+$username = 'USERNAME';
+$password = 'PASSWORD';
+
+
+
+
+//get the key
+try {
+	
+	$apikey = $IfileApi->fetchApiKey($username, $password);
+	
+	print 'the apikey for @'.$username .' is: '.$apikey."\n\n";
+}
+catch ( IfileApiException $e){
+	
+	print 'IfileApiException > '.$e->getMessage();
+}
+
+
+
+
+//get account info
+try {
+	
+	$response = $IfileApi->post(
+		'http://ifile.it/api-fetch_account_info.api',
+		array(
+			'akey'	=>	$apikey
+		)
+	);
+}
+catch ( IfileApiException $e){
+	
+	print 'IfileApiException > '.$e->getMessage();
+}
+
+
+
+
+
+//output our response response array to see its structure
+print print_r( $response,true );
+
+
+?>
+}}}
