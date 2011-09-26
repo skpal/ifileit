@@ -57,7 +57,7 @@ Where the request URL is determined in step 1 above
 *HTTP POST parameters*
 || *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
 || Filedata || no || string ||  ||  || The file to upload ||
-|| akey || yes || string ||  ||  || apikey of the account to which this file is to be added to (see [FetchingApikey]) ||
+|| akey || yes || string ||  ||  || apikey of the account to which this file is to be added to (see [FetchApikey]) ||
 
 <br>
 <br>
