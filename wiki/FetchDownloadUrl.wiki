@@ -27,7 +27,7 @@ http://ifile.it/api-fetch_download_url.api
 *HTTP POST parameters*
 || *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
 || ukey || no || string ||  ||  || The unique key for a file (see [Ukey]) ||
-|| akey || no || string ||  ||  || apikey for a users account (see [FetchingApikey]) ||
+|| akey || no || string ||  ||  || apikey for a users account (see [FetchApikey]) ||
 
 <br>
 <br>
