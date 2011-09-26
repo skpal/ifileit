@@ -27,20 +27,73 @@ http://ifile.it/api-fetch_download_url.api
 *HTTP POST parameters*
 || *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
 || ukey || no || string ||  ||  || The unique key for a file (see [Ukey]) ||
-|| akey || no || string ||  ||  || apikey for a users account (see [FetchApikey]) ||
+
 
 <br>
 <br>
 * API response parameters *
 || *parameter name* || *type* || *possible values* || *description* || 
 || status || string || ok<br>error || Whether the request was successful, error message parameter shown on error ||
-|| download_url || string ||  || Download ticket URL ||
+|| file_status || int || 1 || File status of 1 means the file is all ok ||
+|| message || string ||  || More verbose message telling you whether the file is ok, or not (and why its missing) in error cases ||
 
 
-One can then download from the download ticket URL.
+<br><br><br>
+----
+===Sample Code in PHP===
+Using the official PHP api wrapper, see [http://code.google.com/p/ifileit/downloads/list Downloads]
+{{{
+<?php
 
-You could use wget or curl or whatever method you wish to download files available on your platform and/or programming language of choice
+/**
+ * this example code snippet checks the status of a file
+ */
 
-Please note:
-  * Download ticket URLs are only valid for 24 hours from time of issue
-  * Download ticket URLs are restricted to the network from which the ticket was requested.
+//set error reporting and include our api class
+error_reporting(E_ALL); ini_set( 'display_errors', 'On' );
+require_once( 'IfileApi.php' ); //in same directory as this example script
+
+
+//create api model
+$IfileApi = new IfileApi();
+
+
+
+
+//ukey for test file, see http://code.google.com/p/ifileit/wiki/Ukey   for more details
+$ukey = '6phxv2z'; //  http://ifile.it/6phxv2z/Internet_map_1024.jpg
+
+
+
+
+
+//get account info
+try {
+	
+	$response = $IfileApi->post(
+		'http://ifile.it/api-check_file_status.api',
+		array(
+			'ukey'	=>	$ukey
+		)
+	);
+	
+	if ( $response['file_status'] == 1 ){
+		
+		print_r( 'file is downloadable');
+	}
+}
+catch ( IfileApiException $e){
+	
+	print 'IfileApiException > '.$e->getMessage();
+}
+
+
+
+
+
+//output our response response array to see its structure
+print print_r( $response,true );
+
+
+?>
+}}}
