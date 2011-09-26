@@ -65,7 +65,7 @@ $password = 'PASSWORD';
 
 
 
-//try pinging
+//get the key
 try {
 	
 	$apikey = $IfileApi->fetchApiKey($username, $password);
