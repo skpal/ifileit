@@ -33,7 +33,7 @@ http://ifile.it/api-check_file_status.api
 * API response parameters *
 || *parameter name* || *type* || *possible values* || *description* || 
 || status || string || ok<br>error || Whether the request was successful, error message parameter shown on error ||
-|| file_status || int || 1 || File status of 1 means the file is all ok ||
+|| file_status || int || 1 || File status of 1 means the file is all ok, anything else means an error ||
 || message || string ||  || More verbose message telling you whether the file is ok, or not (and why its missing) in error cases ||
 
 
