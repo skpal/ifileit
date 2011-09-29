@@ -4,3 +4,112 @@
 = Introduction =
 
 This call lets your retrieve detailed file information for any file in your account.
+
+
+<br><br>
+----
+
+===Fetch apikey===
+*Request URL*
+{{{
+http://ifile.it/api-fetch_file_info.api
+}}}
+
+<br>
+<br>
+*HTTP GET parameters*
+|| *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
+|| response || yes || string || json<br/>text || json || In what format the API response should be ||
+
+<br>
+<br>
+*HTTP POST parameters*
+|| *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
+|| akey || no || string ||  ||  || apikey for a users account (see [FetchApikey]) ||
+|| ukey || no || string ||  ||  || The unique key for a file (see [Ukey]) ||
+
+<br>
+<br>
+* API response parameters *
+|| *parameter name* || *type* || *possible values* || *description* || 
+|| status || string || ok<br>error || Whether the request was successful, error message parameter shown on error ||
+|| file_status || int || 1 || File status of 1 means the file is all ok, anything else means an error with file ||
+|| ukey || string ||  || The unique key for a file (see [Ukey]) ||
+|| name || string ||  || File name ||
+|| size || int ||  || File size in bytes ||
+|| mime || string ||  || File [http://en.wikipedia.org/wiki/MIME mimetype] ||
+|| md5 || string ||  || File [http://en.wikipedia.org/wiki/Md5sum md5] checksum ||
+
+
+<br><br><br>
+----
+===Sample Code in PHP===
+Using the official PHP api wrapper, see [http://code.google.com/p/ifileit/downloads/list Downloads]
+{{{
+<?php
+
+/**
+ * this example code snippet retrieves various file information for a file in your account
+ */
+
+//set error reporting and include our api class
+error_reporting(E_ALL); ini_set( 'display_errors', 'On' );
+require_once( 'IfileApi.php' ); //in same directory as this example script
+
+
+//create api model
+$IfileApi = new IfileApi();
+
+
+
+
+//username and pass for an account for which you wish to get the apikey
+$username = 'USERNAME';
+$password = 'PASSWORD';
+
+//file for which we want info for
+$ukey = 'UKEY'; // see for more info http://code.google.com/p/ifileit/wiki/Ukey
+
+
+
+//get the key
+try {
+	
+	$apikey = $IfileApi->fetchApiKey($username, $password);
+	
+	print 'the apikey for @'.$username .' is: '.$apikey."\n\n";
+}
+catch ( IfileApiException $e){
+	
+	print 'IfileApiException > '.$e->getMessage();
+}
+
+
+
+
+//get file info
+try {
+	
+	$response = $IfileApi->post(
+		'http://ifile.it/api-fetch_file_info.api',
+		array(
+			'akey'	=>	$apikey,
+			'ukey'	=>	$ukey
+		)
+	);
+}
+catch ( IfileApiException $e){
+	
+	print 'IfileApiException > '.$e->getMessage();
+}
+
+
+
+
+
+//output our response response array to see its structure
+print print_r( $response,true );
+
+
+?>
+}}}
