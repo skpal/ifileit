@@ -25,7 +25,7 @@ http://ifile.it/api-fetch_account_info.api
 <br>
 *HTTP POST parameters*
 || *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
-|| akey || no || string ||  ||  || apikey of the account to fetch information/stats for (see [FetchingApikey]) ||
+|| akey || no || string ||  ||  || apikey of the account to fetch information/stats for (see [FetchApikey]) ||
 
 <br>
 <br>
