@@ -1,0 +1,6 @@
+#summary retrieve detailed file information about a file in your account
+#labels Phase-Design
+
+= Introduction =
+
+This call lets your retrieve detailed file information for any file in your account.
