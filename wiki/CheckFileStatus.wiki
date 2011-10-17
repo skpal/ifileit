@@ -35,7 +35,10 @@ http://ifile.it/api-check_file_status.api
 || status || string || ok<br>error || Whether the request was successful, error message parameter shown on error ||
 || file_status || int || 1 || File status of 1 means the file is all ok, anything else means an error ||
 || message || string ||  || More verbose message telling you whether the file is ok, or not (and why its missing) in error cases ||
-
+|| ukey || string ||  || The unique key for a file (see [Ukey]) ||
+|| name || string ||  || File name ||
+|| size || int ||  || File size in bytes ||
+|| mime || string ||  || File [http://en.wikipedia.org/wiki/MIME mimetype] ||
 
 <br><br><br>
 ----
