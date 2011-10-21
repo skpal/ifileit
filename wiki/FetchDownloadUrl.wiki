@@ -3,7 +3,7 @@
 
 ==Introduction==
 
-Users with beta tester or vip accounts can request download tickets via this API calls, one can the download from the download ticket URL.
+Users with premium/tester/vip accounts can request download tickets via this API calls, one can the download from the download ticket URL.
 
 This call will be available to users with premium accounts when the premium account system is done, in the meantime it is only available to beta/vip account holders.
 
