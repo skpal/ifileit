@@ -1,0 +1,116 @@
+#summary creates a premium voucher using your reseller balance
+#labels Phase-Design
+
+= Introduction =
+
+This call (ONLY WORKS FOR RESELLER ACCOUNTS!) lets your creates a premium voucher using your reseller balance. Your account balance needs to be higher than the value of the voucher you are issuing.
+
+
+<br><br>
+----
+
+===Create Voucher===
+*Request URL*
+{{{
+http://ifile.it/api-create_voucher.api
+}}}
+
+<br>
+<br>
+*HTTP GET parameters*
+none
+
+<br>
+<br>
+*HTTP POST parameters*
+|| *parameter name* || *optional* || *type* || *possible values* || *default value* || *description* || 
+|| akey || no || string ||  ||  || apikey for a users account (see [FetchApikey]) ||
+|| duration || no || int || 30<br>60<br>90<br>180 || none || Duration of the premium voucher ||
+
+<br>
+<br>
+* API response parameters *
+|| *parameter name* || *type* || *possible values* || *description* || 
+|| status || string || ok<br>error || Whether the request was successful, error message parameter shown on error ||
+|| voucher_code || string ||  || premium voucher code ||
+
+
+
+<br><br><br>
+----
+===Sample Code in PHP===
+Using the official PHP api wrapper, see [http://code.google.com/p/ifileit/downloads/list Downloads]
+{{{
+<?php
+
+/**
+ * this example code snipppet creates a voucher (reseller accounts only!)
+ */
+
+//set error reporting and include our api class
+error_reporting(E_ALL); ini_set( 'display_errors', 'On' );
+require_once( 'IfileApi.php' ); //in same directory as this example script
+
+
+//create api model
+$IfileApi = new IfileApi();
+
+
+$duration = 30; //voucher duration, 30,60,90,180 days
+
+
+
+//username and pass for an account for which you wish to get the apikey
+$username = 'USERNAME';
+$password = 'PASSWORD';
+
+
+
+
+
+//login and get api key
+try {
+	
+	$apikey = $IfileApi->fetchApiKey($username, $password);
+	
+	print 'the apikey for @'.$username .' is: '.$apikey."\n\n";
+}
+catch ( IfileApiException $e){
+	
+	print 'IfileApiException > '.$e->getMessage();
+}
+
+
+
+//issue voucher
+try {
+	
+	$response = $IfileApi->post(
+		'http://ifile.it/api-create_voucher.api',
+		array(
+			'akey'		=>	$apikey,
+			'duration'	=>	$duration
+		)
+	);
+	
+	$voucherCode = $response['voucher_code'];
+	
+	print 'voucher code: '. $voucherCode;
+}
+catch ( IfileApiException $e){
+	
+	print 'IfileApiException > '.$e->getMessage();
+}
+
+
+
+
+
+
+
+//output our response response array to see its structure
+print print_r( $response,true );
+
+
+
+?>}}}
