@@ -37,7 +37,6 @@ http://ifile.it/api-fetch_file_info.api
 || ukey || string ||  || The unique key for a file (see [Ukey]) ||
 || name || string ||  || File name ||
 || size || int ||  || File size in bytes ||
-|| mime || string ||  || File [http://en.wikipedia.org/wiki/MIME mimetype] ||
 || md5 || string ||  || File [http://en.wikipedia.org/wiki/Md5sum md5] checksum ||
 
 
